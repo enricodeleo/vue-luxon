@@ -162,6 +162,10 @@ module.exports = {
           return DateTime.fromRFC2822(a, {
             zone: sz
           });
+        case "unix":
+          return DateTime.fromMillis(a, {
+            zone: sz
+          });
         default:
           return DateTime.fromFormat(a, sf, {
             zone: sz
@@ -262,6 +266,9 @@ module.exports = {
           break;
         case "rfc2822":
           return dt.toRFC2822(a);
+          break;
+        case "unix":
+          return dt.toMillis(a);
           break;
         default:
           return dt.toFormat(cf);
